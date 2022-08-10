@@ -30,16 +30,24 @@ public class GameManager : MonoBehaviour {
 	void Awake(){
 	
 		Instance = this;
+    }
+
+    private void Start()
+    {
+		
 	}
 
-	void OnEnable(){
+    void OnEnable()
+	{
+		CountdownText.OnCountdownFinished += OnCountdownFinished; // Penambahan
+
 		TapController.OnPlayerDied += OnPlayerDied;
 		TapController.OnPlayerScored += OnPlayerScored;
-	
 	}
 
 	void OnDisable(){
 		CountdownText.OnCountdownFinished -= OnCountdownFinished;
+
 		TapController.OnPlayerDied -= OnPlayerDied;
 		TapController.OnPlayerScored -= OnPlayerScored;
 	
@@ -47,7 +55,7 @@ public class GameManager : MonoBehaviour {
 
 	void OnCountdownFinished(){
 		SetPageState (PageState.None);
-		OnGameStarted ();
+		OnGameStarted();
 		score = 0;
 		gameOver = false;
 	
@@ -64,9 +72,11 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void OnPlayerScored(){
-	
-		_score++;
-		scoreText.text = _score;
+
+		//_score++;
+		score++;
+		//scoreText.text = _score;
+		scoreText.text = score.ToString();
 	}
 
 	void SetPageState(PageState state){

@@ -16,8 +16,6 @@ public class CountdownText : MonoBehaviour {
 		countdown = GetComponent<Text>();
 		countdown.text = "3";
 		StartCoroutine ("Countdown");
-	
-	
 	}
 
 	IEnumerator Countdown(){
@@ -25,10 +23,7 @@ public class CountdownText : MonoBehaviour {
 		for (int i = 0; i < count; i++) {
 			countdown.text = (count - i).ToString();
 			yield return new WaitForSeconds (1);
-		
-		
 		}
-	
-		OnCountdownFinished ();
+		OnCountdownFinished();
 	}
 }
