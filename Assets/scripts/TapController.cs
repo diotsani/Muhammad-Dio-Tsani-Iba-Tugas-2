@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class TapController : MonoBehaviour {
 
-	public delegate void PlayerDelegate ();
+	public delegate void PlayerDelegate();
 	public static event PlayerDelegate OnPlayerDied;
 	public static event PlayerDelegate OnPlayerScored;
 
@@ -19,7 +19,6 @@ public class TapController : MonoBehaviour {
 	public AudioSource dieAudio;
 
 
-
 	Rigidbody2D rigidbody;
 	Quaternion downrotation;
 	Quaternion forwardrotation;
@@ -28,7 +27,7 @@ public class TapController : MonoBehaviour {
 
 
 	void Start(){
-		rigidbody = GetComponent<Rigidbody2D> ();
+		rigidbody = GetComponent<Rigidbody2D>();
 		downrotation = Quaternion.Euler (0, 0, -90);
 		forwardrotation = Quaternion.Euler (0, 0, 35);
 		game = GameManager.Instance;
@@ -79,19 +78,16 @@ public class TapController : MonoBehaviour {
 
 		if (col.gameObject.tag == "ScoreZone") {
 		
-			OnPlayerScored ();
+			OnPlayerScored();
 			scoreAudio.Play();
 		}
 
 		if (col.gameObject.tag == "DeadZones") {
 		
 			rigidbody.simulated = false;
-			OnPlayerDied ();
+			OnPlayerDied();
 			dieAudio.Play();
 		}
-	
-	
-	
 	}
 
 }
