@@ -53,10 +53,17 @@ public class Parallaxer : MonoBehaviour {
 	}
 
 	void OnEnable(){
+		GameManager.OnGameStarted += OnGameStarted;
 		GameManager.OnGameOverConfirmed += OnGameOverConfirmed;
 	}
 	void OnDisable(){
+		GameManager.OnGameStarted-=OnGameStarted;
+
 		GameManager.OnGameOverConfirmed -= OnGameOverConfirmed;
+	}
+	void OnGameStarted()
+    {
+		Configure();
 	}
 	void OnGameOverConfirmed(){
 		for (int i = 0; i < poolObjects.Length; i++) {

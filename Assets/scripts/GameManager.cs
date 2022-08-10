@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour {
 
     void OnEnable()
 	{
-		CountdownText.OnCountdownFinished += OnCountdownFinished; // Penambahan
+		CountdownText.OnCountdownFinished += OnCountdownFinished;
 
 		TapController.OnPlayerDied += OnPlayerDied;
 		TapController.OnPlayerScored += OnPlayerScored;
@@ -73,9 +73,7 @@ public class GameManager : MonoBehaviour {
 
 	void OnPlayerScored(){
 
-		//_score++;
 		score++;
-		//scoreText.text = _score;
 		scoreText.text = score.ToString();
 	}
 
