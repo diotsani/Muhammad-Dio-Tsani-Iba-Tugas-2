@@ -87,8 +87,6 @@ public class TapController : MonoBehaviour {
 			rigidbody.simulated = false;
 			OnPlayerDied();
 			dieAudio.Play();
-
-			Debug.Log("Plane Die");
 		}
 	}
 
